@@ -10,7 +10,7 @@ type Product = {
 const products: Product[] = [
   {
     name: 'The Original',
-    price: '$14.00',
+    price: 'P295',
     label: '48h Espresso Soak',
     labelColor: 'text-[#603813]',
     description:
@@ -19,7 +19,7 @@ const products: Product[] = [
   },
   {
     name: 'Signature Cocoa',
-    price: '$16.00',
+    price: 'P295',
     label: "Chef's Selection",
     labelColor: 'text-[#a43333]',
     description:
@@ -28,7 +28,7 @@ const products: Product[] = [
   },
   {
     name: 'Midnight Cocoa',
-    price: '$15.00',
+    price: 'P295',
     label: 'Intense Dark',
     labelColor: 'text-[#675e4b]',
     description:
