@@ -37,7 +37,11 @@ const products: Product[] = [
   },
 ];
 
-function CollectionSection() {
+type CollectionSectionProps = {
+  onOrderClick: (itemLabel: string) => void;
+};
+
+function CollectionSection({ onOrderClick }: CollectionSectionProps) {
   return (
     <section id="collection" className="bg-[#f2f0ea]/50 px-5 py-20 sm:px-6 md:px-10 md:py-28 lg:px-12 lg:py-40">
       <div className="mx-auto w-full max-w-[1440px]">
@@ -90,6 +94,7 @@ function CollectionSection() {
 
               <button
                 type="button"
+                onClick={() => onOrderClick(`Pre-Order: ${product.name}`)}
                 className="w-full rounded-[8px] border border-[#d9d5cc] py-4 font-label text-[10px] font-bold uppercase tracking-[0.2em] text-[#2f342e] transition-all duration-500 hover:border-[#603813] hover:bg-[#603813] hover:text-white"
               >
                 Pre-Order

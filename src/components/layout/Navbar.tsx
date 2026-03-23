@@ -1,6 +1,9 @@
 type NavbarProps = {
   isScrolled: boolean;
   isMenuOpen: boolean;
+  activeSection: string;
+  onOrderClick: () => void;
+  onLinkClick: (sectionId: string) => void;
   onToggleMenu: () => void;
   onCloseMenu: () => void;
 };
@@ -12,7 +15,15 @@ const navLinks = [
   { label: 'Visit', href: '#visit' },
 ];
 
-function Navbar({ isScrolled, isMenuOpen, onToggleMenu, onCloseMenu }: NavbarProps) {
+function Navbar({
+  isScrolled,
+  isMenuOpen,
+  activeSection,
+  onOrderClick,
+  onLinkClick,
+  onToggleMenu,
+  onCloseMenu,
+}: NavbarProps) {
   return (
     <>
       <nav
@@ -38,8 +49,13 @@ function Navbar({ isScrolled, isMenuOpen, onToggleMenu, onCloseMenu }: NavbarPro
               <a
                 key={link.label}
                 href={link.href}
-                onClick={onCloseMenu}
-                className="transition-colors duration-500 hover:text-[#603813]"
+                onClick={() => onLinkClick(link.href.replace('#', ''))}
+                className={[
+                  'transition-colors duration-500 hover:text-[#603813]',
+                  activeSection === link.href.replace('#', '')
+                    ? 'font-bold text-[#603813]'
+                    : '',
+                ].join(' ')}
               >
                 {link.label}
               </a>
@@ -57,6 +73,7 @@ function Navbar({ isScrolled, isMenuOpen, onToggleMenu, onCloseMenu }: NavbarPro
 
             <button
               type="button"
+              onClick={onOrderClick}
               className="hidden rounded-[8px] bg-[#603813] px-6 py-3 font-label text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-sm transition-all duration-500 hover:bg-[#4d2c25] lg:inline-flex"
             >
               Reserve Batch
@@ -89,14 +106,26 @@ function Navbar({ isScrolled, isMenuOpen, onToggleMenu, onCloseMenu }: NavbarPro
             <a
               key={link.label}
               href={link.href}
-              onClick={onCloseMenu}
-              className="block transition-colors hover:text-[#603813]"
+              onClick={() => {
+                onLinkClick(link.href.replace('#', ''));
+                onCloseMenu();
+              }}
+              className={[
+                'block transition-colors hover:text-[#603813]',
+                activeSection === link.href.replace('#', '')
+                  ? 'font-bold text-[#603813]'
+                  : '',
+              ].join(' ')}
             >
               {link.label}
             </a>
           ))}
           <button
             type="button"
+            onClick={() => {
+              onOrderClick();
+              onCloseMenu();
+            }}
             className="inline-flex rounded-[8px] bg-[#603813] px-7 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white"
           >
             Reserve Batch

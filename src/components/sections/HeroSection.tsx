@@ -1,4 +1,8 @@
-function HeroSection() {
+type HeroSectionProps = {
+  onOrderClick: () => void;
+};
+
+function HeroSection({ onOrderClick }: HeroSectionProps) {
   return (
     <section className="relative overflow-hidden px-5 pb-16 pt-28 sm:px-6 md:px-10 md:pb-16 md:pt-32 lg:px-12 lg:pb-32 lg:pt-48">
       <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-10 lg:grid-cols-12 lg:gap-24">
@@ -23,20 +27,21 @@ function HeroSection() {
           <div className="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
             <button
               type="button"
+              onClick={onOrderClick}
               className="rounded-[8px] bg-[#603813] px-10 py-4 font-label text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-500 hover:shadow-lg hover:shadow-[#603813]/10"
             >
               Join Next Drop
             </button>
 
-            <button
-              type="button"
+            <a
+              href="#story"
               className="group inline-flex items-center gap-3 font-label text-[11px] font-bold uppercase tracking-[0.2em] text-[#2f342e]"
             >
               The Philosophy
               <span className="material-symbols-outlined text-[#603813] transition-transform duration-500 group-hover:translate-x-1.5">
                 east
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
