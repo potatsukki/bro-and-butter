@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+:root {
+  color: #2f342e;
+  background-color: #faf9f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #faf9f5;
+  color: #2f342e;
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-headline {
+  font-family: 'Noto Serif', serif;
+}
+
+.font-label,
+.font-body {
+  font-family: 'Manrope', sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  line-height: 1;
+}
